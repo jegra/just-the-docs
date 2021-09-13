@@ -15,6 +15,7 @@
     "stylelint-selector-no-utility": "^4.0.0"
   },
   "scripts": {
+    "dev": "bundle exec jekyll serve --config _config.yml,_config_dev.yml",
     "test": "stylelint '**/*.scss'",
     "format": "prettier --write '**/*.{scss,js,json}'",
     "stylelint-check": "stylelint-config-prettier-check"
