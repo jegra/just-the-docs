@@ -1,5 +1,10 @@
 {% if site.logo %}
-$logo: "{{ site.logo | absolute_url }}";
+  $logo: "{{ site.logo | absolute_url }}";
+{% endif %}
+{% if site.banner_links.lsp or site.banner_links.hits %}
+  $hasBanner: true;
+{% else %}
+  $hasBanner: false;
 {% endif %}
 @import "./support/support";
 @import "./color_schemes/{{ include.color_scheme }}";

@@ -7,6 +7,9 @@ layout: table_wrappers
 <html lang="{{ site.lang | default: 'en-US' }}">
 {% include head.html %}
 <body>
+  {% if site.banner_links.lsp or site.banner_links.hits %}
+    {% include banner.html %}
+  {% endif %}
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="svg-link" viewBox="0 0 24 24">
       <title>Link</title>
@@ -41,7 +44,6 @@ layout: table_wrappers
   </svg>
 
   <div class="side-bar">
-    <h1>HMS</h1>
     <div class="site-header">
       <a href="{{ '/' | absolute_url }}" class="site-title lh-tight">{% include title.html %}</a>
       <a href="#" id="menu-button" class="site-button">
@@ -51,9 +53,11 @@ layout: table_wrappers
     <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
       {% include nav/main.html %}
     </nav>
+    {% comment %}
     <footer class="site-footer">
       This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
     </footer>
+    {% endcomment %}
   </div>
   <div class="main" id="top">
     <div id="main-header" class="main-header">
@@ -67,23 +71,6 @@ layout: table_wrappers
         </div>
       {% endif %}
       {% include header_custom.html %}
-      {% if site.aux_links %}
-        <nav aria-label="Auxiliary" class="aux-nav">
-          <ul class="aux-nav-list">
-            {% for link in site.aux_links %}
-              <li class="aux-nav-list-item">
-                <a href="{{ link.last }}" class="site-button"
-                  {% if site.aux_links_new_tab %}
-                  target="_blank" rel="noopener noreferrer"
-                  {% endif %}
-                >
-                  {{ link.first }}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </nav>
-      {% endif %}
     </div>
     <div id="main-content-wrap" class="main-content-wrap">
 

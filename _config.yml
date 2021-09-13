@@ -13,16 +13,16 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Just the Docs FORK rec-nav-2
-description: A Jekyll theme for documentation
+title: Just the Docs - HMS Edition
+description: A Jekyll theme for HMS-branded websites
 baseurl: "/just-the-docs" # the subpath of your site, e.g. /blog
-url: "https://pdmosses.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://127.0.0.1:4000" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
 
 # Set a path/url to a logo that will be displayed instead of the title
-#logo: "/assets/images/just-the-docs.png"
+# logo: "/assets/images/just-the-docs.png"
 
 # Enable or disable the site search
 # Supports true (default) or false
@@ -54,13 +54,10 @@ search:
 # Enable or disable heading anchors
 heading_anchors: true
 
-# Aux links for the upper right navigation
-aux_links:
-  "Just the Docs on GitHub":
-    - "//github.com/pmarsceill/just-the-docs"
-
-# Makes Aux links open in a new tab. Default is false
-aux_links_new_tab: false
+# Banner links to include
+banner_links:
+  lsp: true
+  hits: true
 
 # Sort order for navigation links
 # nav_sort: case_insensitive # default, equivalent to nil

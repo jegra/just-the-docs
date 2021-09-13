@@ -23,6 +23,11 @@ body {
   line-height: $body-line-height;
   color: $body-text-color;
   background-color: $body-background-color;
+  @if $hasBanner {
+    @include mq(md) {
+      padding-top:$banner-height;
+    }
+  }
 }
 
 ol,
@@ -51,6 +56,10 @@ h6 {
   font-weight: 500;
   line-height: $body-heading-line-height;
   color: $body-heading-color;
+}
+
+h2 {
+  color: $body-heading-2-color;
 }
 
 p {

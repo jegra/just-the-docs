@@ -10,11 +10,19 @@
   font-size: $font-size-2 !important;
 
   @include mq(sm) {
-    font-size: $font-size-3 !important;
+    font-size: $font-size-2-sm !important;
   }
 }
 
 @mixin fs-3 {
+  font-size: $font-size-2-sm !important;
+
+  @include mq(sm) {
+    font-size: $font-size-3 !important;
+  }
+}
+
+@mixin fs-4 {
   font-size: $font-size-3 !important;
 
   @include mq(sm) {
@@ -22,7 +30,7 @@
   }
 }
 
-@mixin fs-4 {
+@mixin fs-5 {
   font-size: $font-size-4 !important;
 
   @include mq(sm) {
@@ -30,24 +38,25 @@
   }
 }
 
-@mixin fs-5 {
+@mixin fs-6 {
   font-size: $font-size-5 !important;
 
   @include mq(sm) {
     font-size: $font-size-6 !important;
-  }
-}
-
-@mixin fs-6 {
-  font-size: $font-size-6 !important;
-
-  @include mq(sm) {
-    font-size: $font-size-7 !important;
     line-height: $body-heading-line-height;
   }
 }
 
 @mixin fs-7 {
+  font-size: $font-size-6 !important;
+  line-height: $body-heading-line-height;
+
+  @include mq(sm) {
+    font-size: $font-size-7 !important;
+  }
+}
+
+@mixin fs-8 {
   font-size: $font-size-7 !important;
   line-height: $body-heading-line-height;
 
@@ -56,21 +65,12 @@
   }
 }
 
-@mixin fs-8 {
+@mixin fs-9 {
   font-size: $font-size-8 !important;
   line-height: $body-heading-line-height;
 
   @include mq(sm) {
     font-size: $font-size-9 !important;
-  }
-}
-
-@mixin fs-9 {
-  font-size: $font-size-9 !important;
-  line-height: $body-heading-line-height;
-
-  @include mq(sm) {
-    font-size: $font-size-10 !important;
   }
 }
 

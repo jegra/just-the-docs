@@ -5,18 +5,23 @@
 
 h1,
 .text-alpha {
-  @include fs-8;
-  font-weight: 300;
+  @include fs-9;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 h2,
 .text-beta {
-  @include fs-6;
+  @include fs-7;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 h3,
 .text-gamma {
-  @include fs-5;
+  @include fs-4;
 }
 
 h4,

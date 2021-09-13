@@ -1,4 +1,75 @@
 //
+// Top branding banner
+//
+.banner {
+  background: $white;
+  position:fixed;
+  width:100%;
+  z-index:3;
+  top:0;
+}
+.banner-inner {
+  display:flex;
+  align-items:stretch;
+  justify-content: flex-end;
+  background:url(../images/banner-background.svg) left top repeat-x;
+  margin-right:$gutter-spacing;
+  height: $banner-height;
+
+  @include mq(lg) {
+    margin-right: $gutter-spacing-lg;
+  }
+  @include mq(xl) {
+    margin-right: $gutter-spacing-xl;
+  }
+  @include mq(xxl) {
+    margin-right: $gutter-spacing-xxl;
+  }
+  @media (min-width:#{$nav-width-xxl + $content-width + 16px}) {
+    // When content floats in the main container...
+    margin-right: calc((100% - #{$nav-width-xxl + ($content-width - ($gutter-spacing-xxl * 2))}) / 2);
+  }
+}
+.brand-list {
+  margin:0;
+  padding:0;
+  list-style:none;
+  background:$white;
+  position:relative;
+  display:flex;
+
+  &::before {
+    content:"";
+    position:absolute;
+    left:-150px;
+    width:150px;
+    height:100%;
+    display:block;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  }
+}
+.brand-item {
+  padding:0;
+  margin:0 0 0 25px;
+  font-size:$font-size-2;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+
+  &:first-of-type {
+    margin-left:0;
+  }
+
+  span {
+    align-self:flex-end;
+    margin:0 10px 8px 0;
+  }
+  a {
+    background-image:none;
+  }
+}
+
+//
 // The basic two column layout
 //
 
@@ -18,22 +89,32 @@
     align-items: flex-end;
   }
 
-  @include mq(lg) {
-    width: calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width});
-    min-width: $nav-width;
+  @include mq(lg) { 
+    width: $nav-width-lg;
+  }
+  @include mq(xxl) { 
+    width: $nav-width-xxl;
+  }
+  @include mq(xxxl) { 
+    width: calc((100% - #{$nav-width-xxl + $content-width-xxxl}) / 2 + #{$nav-width-xxl});
   }
 }
 
 .main {
-  @include mq(md) {
+  @include mq(md) { 
     position: relative;
-    max-width: $content-width;
     margin-left: $nav-width-md;
   }
 
-  @include mq(lg) {
+  @include mq(lg) { 
+    margin-left: $nav-width-lg;
+  }
+  @include mq(xxl) { 
+    margin-left: $nav-width-xxl;
+  }
+  @include mq(xxxl) { 
     margin-left: calc(
-      (100% - #{$nav-width + $content-width}) / 2 + #{$nav-width}
+      (100% - #{$nav-width-xxl + $content-width-xxxl}) / 2 + #{$nav-width-xxl}
     );
   }
 }
@@ -76,8 +157,14 @@
 .site-footer {
   width: 100%;
 
-  @include mq(lg) {
-    width: $nav-width;
+  @include mq(md) {
+    width: $nav-width-md;
+  }
+  @include mq(lg) { 
+    width: $nav-width-lg;
+  }
+  @include mq(xxl) { 
+    width: $nav-width-xxl;
   }
 }
 
@@ -110,7 +197,9 @@
 }
 
 .site-title {
-  @include container;
+  padding-right: $gutter-spacing-sm;
+  padding-left: $gutter-spacing-sm;
+
   flex-grow: 1;
   display: flex;
   height: 100%;
@@ -120,6 +209,10 @@
   color: $body-heading-color;
   @include fs-6;
 
+  @include mq(sm) {
+    padding-right: $gutter-spacing;
+    padding-left: $gutter-spacing;
+  }
   @include mq(md) {
     padding-top: $sp-2;
     padding-bottom: $sp-2;

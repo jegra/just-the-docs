@@ -26,9 +26,33 @@
 @mixin container {
   padding-right: $gutter-spacing-sm;
   padding-left: $gutter-spacing-sm;
+  max-width:$content-width;
+  margin-left:auto;
+  margin-right:auto;
 
-  @include mq(md) {
+  @include mq(sm) {
     padding-right: $gutter-spacing;
     padding-left: $gutter-spacing;
   }
+  @include mq(lg) {
+    padding-right: $gutter-spacing-lg;
+    padding-left: $gutter-spacing-lg;
+  }
+  @include mq(xl) {
+    padding-right: $gutter-spacing-xl;
+    padding-left: $gutter-spacing-xl;
+  }
+  @include mq(xxl) {
+    padding-right: $gutter-spacing-xxl;
+    padding-left: $gutter-spacing-xxl;
+  }
+  @include mq(xxxl) {
+    max-width:$content-width-xxxl;
+    padding-right: $gutter-spacing-xxxl;
+    padding-left: $gutter-spacing-xxxl;
+    margin-left:0;
+    margin-right:0;
+  }
+
 }
+

@@ -2,8 +2,7 @@
 // Typography
 //
 
-$body-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-  Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$body-font-family: Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $mono-font-family: "SFMono-Regular", Menlo, Consolas, Monospace !default;
 $root-font-size: 16px !default; // Base font-size for rems
 $body-line-height: 1.4 !default;
@@ -17,16 +16,17 @@ $body-heading-line-height: 1.25 !default;
 
 $font-size-1: 9px !default;
 $font-size-1-sm: 10px !default;
-$font-size-2: 11px !default; //h4 - uppercased!, h6 not uppercased, text-small
-$font-size-3: 12px !default; //h5
-$font-size-4: 14px !default;
-$font-size-5: 16px !default; //h3
-$font-size-6: 18px !default; //h2
-$font-size-7: 24px !default;
-$font-size-8: 32px !default; //h1
-$font-size-9: 36px !default;
-$font-size-10: 42px !default;
-$font-size-10-sm: 48px !default;
+$font-size-2: 12px !default;
+$font-size-2-sm: 14px !default; //h4 - uppercased!, h6 not uppercased, text-small
+$font-size-3: 16px !default; //h5, body-mobile
+$font-size-4: 18px !default; //h3, body
+$font-size-5: 20px !default; 
+$font-size-6: 22px !default; //nav
+$font-size-7: 24px !default; //h2
+$font-size-8: 30px !default; 
+$font-size-9: 32px !default; //h1
+$font-size-10: 38px !default; // Mobile
+$font-size-10-sm: 44px !default; // Small size and up...
 
 //
 // Colors
@@ -78,7 +78,8 @@ $code-background-color: $grey-lt-000 !default;
 $feedback-color: darken($sidebar-color, 3%) !default;
 
 $body-text-color: $grey-dk-100 !default;
-$body-heading-color: $grey-dk-300 !default;
+$body-heading-color: $blue-300 !default;    // Default heading color
+$body-heading-2-color: $blue-200 !default;  // Target H2 heading color
 $search-result-preview-color: $grey-dk-000 !default;
 $nav-child-link-color: $grey-dk-100 !default;
 $link-color: $purple-000 !default;
@@ -130,14 +131,22 @@ $border-color: $grey-lt-100 !default;
 
 $gutter-spacing: $sp-6 !default;
 $gutter-spacing-sm: $sp-4 !default;
-$nav-width: 264px !default;
-$nav-width-md: 248px !default;
-$nav-list-item-height: $sp-6 !default;
-$nav-list-item-height-sm: $sp-8 !default;
+$gutter-spacing-lg: 80px !default;
+$gutter-spacing-xl: 100px !default;
+$gutter-spacing-xxl: 125px !default;
+$gutter-spacing-xxxl: 160px !default;
+$nav-width-md: 280px !default;
+$nav-width-lg: 340px !default;
+$nav-width-xxl: 400px !default;
+$nav-list-item-height: $spacing-unit * 2.25 !default;
+$nav-list-item-height-sm: $sp-7 !default;
+$nav-list-item-height-lg: $spacing-unit * 2.3 !default;
 $nav-list-expander-right: true;
-$content-width: 800px !default;
+$content-width: 1430px !default;
+$content-width-xxxl: 1500px !default;
 $header-height: 60px !default;
-$search-results-width: $content-width - $nav-width !default;
+$banner-height: 48px !default;
+$search-results-width: $content-width - $nav-width-lg !default;
 $transition-duration: 400ms;
 
 //
@@ -147,7 +156,9 @@ $transition-duration: 400ms;
 $media-queries: (
   xs: 320px,
   sm: 500px,
-  md: $content-width,
-  lg: $content-width + $nav-width,
-  xl: 1400px,
+  md: 1024px,
+  lg: 1280px,
+  xl: 1440px,
+  xxl: 1620px, 
+  xxxl: 1916px,
 ) !default;

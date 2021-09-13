@@ -10,12 +10,18 @@
   list-style: none;
 
   .nav-list-item {
-    @include fs-4;
+    @include fs-5;
     position: relative;
     margin: 0;
 
     @include mq(md) {
-      @include fs-3;
+      @include fs-4;
+    }
+    @include mq(lg) {
+      @include fs-5;
+    }
+    @include mq(xl) {
+      @include fs-6;
     }
 
     .nav-list-link {
@@ -41,6 +47,17 @@
         } @else {
           padding-right: $gutter-spacing;
           padding-left: $nav-list-item-height;
+        }
+      }
+      @include mq(lg) {
+        min-height: $nav-list-item-height-lg;
+        line-height: #{$nav-list-item-height-lg - 2 * $sp-1};
+        @if $nav-list-expander-right {
+          padding-right: $nav-list-item-height-lg;
+          padding-left: $gutter-spacing;
+        } @else {
+          padding-right: $gutter-spacing;
+          padding-left: $nav-list-item-height-lg;
         }
       }
 
