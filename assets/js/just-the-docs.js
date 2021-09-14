@@ -458,10 +458,40 @@ jtd.setTheme = function(theme) {
   cssFile.setAttribute('href', path);
 }
 
+// Track when user scrolls away from top
+function initScrollTracking() {
+    var atTop = true;
+    var debounce = null;
+    var doc = document.documentElement;
+    var body = document.body;
+    document.addEventListener('scroll', function(event) {
+        if (!debounce) {
+            debounce = setTimeout(function() {
+                checkLocation();
+                debounce = null;
+            }, 100);
+        }
+    });
+
+    function checkLocation() {
+        var top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+        if (top === 0 && !atTop) {
+            // We were away, and now we're back
+            body.classList.remove('scrolled');
+            atTop = true;
+        } else if (top !== 0 && atTop) {
+            // We've scrolled away
+            body.classList.add('scrolled');
+            atTop = false;
+        }
+    }
+}
+
 // Document ready
 
 jtd.onReady(function(){
   initNav();
+  initScrollTracking();
   {%- if site.search_enabled != false %}
   initSearch();
   {%- endif %}

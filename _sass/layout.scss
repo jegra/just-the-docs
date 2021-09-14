@@ -7,7 +7,41 @@
   width:100%;
   z-index:3;
   top:0;
+  display:none;
+  border-bottom:1px solid $white;
+  transition:border-color 0.2s ease-out;
+
+  // Special formatting of the brand-list item when displayed
+  // in the top-banner layout
+  .brand-list {
+    display:flex;
+  
+    &::before {
+      content:"";
+      position:absolute;
+      left:-150px;
+      width:150px;
+      height:100%;
+      display:block;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    }
+  }
+  .brand-item {
+    &:first-of-type {
+      margin-left:0;
+    }
+  }
+
+  @include mq(md) {
+    display:block;
+  }
 }
+
+// When scrolled away from top, add bottom border
+.scrolled .banner {
+  border-color: $grey-lt-200;
+}
+
 .banner-inner {
   display:flex;
   align-items:stretch;
@@ -30,23 +64,55 @@
     margin-right: calc((100% - #{$nav-width-xxl + ($content-width - ($gutter-spacing-xxl * 2))}) / 2);
   }
 }
+
+// Branding banner, mobile placement
+
+.banner-mobile {
+  background:url(../images/banner-background.svg) left top repeat;
+  border-bottom:1px solid $grey-lt-200;
+
+  .brand-list {
+    padding:1px 0;
+    // background:rgba(255,255,255,.8);
+    background:transparent;
+
+    @media (min-width:600px) {
+      display:flex;
+      justify-content: center;
+    }
+  }
+  .brand-item {
+    margin:10px;
+    height:$banner-height;
+
+    span {
+      width:36%;
+      text-align:right;
+    }
+
+    @media (min-width:600px) {
+      span {
+        width:auto;
+      }
+    }
+  }
+
+  @include mq(md) {
+    display:none;
+  }
+}
+.banner-mobile-inner {
+  background: linear-gradient(90deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,1) 50%);
+}
+
+// Banner content
+
 .brand-list {
   margin:0;
   padding:0;
   list-style:none;
   background:$white;
   position:relative;
-  display:flex;
-
-  &::before {
-    content:"";
-    position:absolute;
-    left:-150px;
-    width:150px;
-    height:100%;
-    display:block;
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-  }
 }
 .brand-item {
   padding:0;
@@ -56,15 +122,12 @@
   display:flex;
   align-items:center;
 
-  &:first-of-type {
-    margin-left:0;
-  }
-
   span {
     align-self:flex-end;
     margin:0 10px 8px 0;
   }
-  a {
+  a,
+  a:hover {
     background-image:none;
   }
 }
@@ -264,17 +327,126 @@
 
 body {
   position: relative;
-  padding-bottom: $sp-10;
+  // padding-bottom: $sp-10;
   overflow-y: scroll;
 
   @include mq(md) {
     position: static;
-    padding-bottom: 0;
+    // padding-bottom: 0;
   }
 }
 
 // stylelint-enable selector-max-type
 
+.footer {
+  padding-top: $sp-7;
+  padding-bottom: $sp-6;
+  background-color: $footer-background-color;
+  color: $footer-text-color;
+
+  a {
+    color: $footer-link-color;
+    background-image: linear-gradient($footer-link-color 0%, $footer-link-color 100%);
+
+    &:hover {
+      background-image: linear-gradient(transparent 0%, transparent 100%);
+    }
+
+    &.image-link,
+    &.image-link:hover {
+      background:none;
+    }
+  }
+}
+.footer-inner {
+  @include container;
+
+}
+
+
+.footer-sections {
+  @include mq(xl) {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+  }
+}
+
+.footer-section {
+  margin-top:1.25em;
+  margin-bottom:1.25em;
+
+  p {
+    margin:0 0 .25em;
+  }
+
+  @include mq(xl) {
+    margin-top:.75em;
+    margin-bottom:.75em;
+    flex-basis:58%;
+    margin-left:7%;
+
+    &:nth-child(2n+1) {
+      flex-basis:35%;
+      margin-left:0;
+    }
+  }
+
+  @include mq(xxxl) {
+    font-size: $font-size-5;
+    flex-basis:55%;
+    margin-left:7%;
+
+    &:nth-child(2n+1) {
+      flex-basis:38%;
+      margin-left:0;
+    }
+  }
+}
+
+.footer-logos {
+  margin-top:2.5em;
+  margin-bottom:2.5em;
+
+  @media (min-width:800px) {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+  }
+
+  @include mq(xl) {
+    margin-top:0;
+    margin-bottom:0;
+  }
+}
+.footer-logo {
+  margin-top:1.25em;
+  margin-bottom:1.25em;
+
+  @media (min-width:800px) {
+    flex-basis:47%;
+    margin-left:6%;
+    margin-top:0;
+    max-width:320px;
+
+    &:nth-child(2n+1) {
+      margin-left:0;
+    }
+  }
+
+  @include mq(xxxl) {
+    flex-basis:45%;
+    margin-left:10%;
+
+    &:nth-child(2n+1) {
+      margin-left:0;
+    }
+  }
+}
+
+
+
+/*
 .site-footer {
   @include container;
   position: absolute;
@@ -290,6 +462,7 @@ body {
     justify-self: end;
   }
 }
+*/
 
 .icon {
   width: $sp-5;

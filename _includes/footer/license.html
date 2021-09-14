@@ -1,0 +1,28 @@
+{% if site.license_name != nil and site.license_name != "" %}
+  {% assign hasLicenseName = true %}
+{% else %}
+  {% assign hasLicenseName = false %}
+{% endif %}
+
+{% if site.license_url != nil and site.license_url != "" %}
+  {% assign hasLicenseUrl = true %}
+{% else %}
+  {% assign hasLicenseUrl = false %}
+{% endif %}
+
+{% assign hasLicenseUrl = (site.license_url != nil and site.license_url != "") %}
+{%- if hasLicenseUrl or hasLicenseName -%}
+  <p>{{ site.title }} is licensed under the 
+    {% if hasLicenseUrl %}
+      <a href="{{ site.license_url }}" target="_blank">
+    {%- endif -%}
+      {% if hasLicenseName %}
+        {{ site.license_name }}
+      {% else %}
+        {{ site.license_url }}
+      {% endif %}
+    {%- if hasLicenseUrl -%}
+      </a>
+    {%- endif -%}
+  </p>
+{% endif %}

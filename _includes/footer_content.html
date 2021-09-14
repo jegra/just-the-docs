@@ -1,0 +1,13 @@
+<div class="footer-sections">
+  {%- if (site.license_name != nil and site.license_name != "") or site.last_edit_timestamp or site.gh_edit_link -%}
+    <div class="footer-section">
+      {% include footer/license.html %}
+      {% include footer/github.html %}
+    </div>
+  {%- endif -%}
+  {%- if site.footer_logos|length -%}
+    <div class="footer-section">
+      {% include footer/logos.html %}
+    </div>
+  {%- endif -%}
+</div>

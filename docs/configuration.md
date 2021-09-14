@@ -30,6 +30,15 @@ View this site's [_config.yml](https://github.com/pmarsceill/just-the-docs/tree/
 logo: "/assets/images/just-the-docs.png"
 ```
 
+## Top Banner
+
+```yaml
+# Choose whether to include the LSP and/or HiTS logos at the top of the page
+banner_links:
+  lsp: true
+  hits: true
+```
+
 ## Search
 
 ```yaml
@@ -78,9 +87,24 @@ heading_anchors: true
 ```yaml
 # Footer content
 # appears at the bottom of every page's main content
-# Note: The footer_content option is deprecated and will be removed in a future major release. Please use `_includes/footer_custom.html` for more robust
-markup / liquid-based content.
-footer_content: "Copyright &copy; 2017-2020 Patrick Marsceill. Distributed by an <a href=\"https://github.com/pmarsceill/just-the-docs/tree/master/LICENSE.txt\">MIT license.</a>"
+# Note: The footer_content option is deprecated and will be removed in a future major release. 
+# Please use `_includes/footer_custom.html` for more robust markup / liquid-based content.
+footer_content: "Copyright &copy; 2017-2020 Patrick Marsceill."
+
+# License information
+# Provide license information for the project
+license_name: "MIT License"
+license_url: "https://github.com/pmarsceill/just-the-docs/blob/master/LICENSE.txt"
+
+# Footer logos
+# Specify one or more linked logos to display.
+footer_logos:
+  - name: "Laboratory of Systems Pharmacology"
+    image: "/assets/images/logo_lsp_white.svg"
+    url: "https://hits.harvard.edu/the-program/laboratory-of-systems-pharmacology/about/"
+  - name: "Harvard Medical School"  # the institution the logo represents
+    image: "assets/images/logo_hms.svg"  # path to the logo file
+    url: "https://hms.harvard.edu/"  # link to the institution (opens in new tab)
 
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
@@ -126,7 +150,7 @@ jtd.addEvent(toggleDarkMode, 'click', function(){
 });
 </script>
 
-See [Customization]({{ site.baseurl }}{% link docs/customization.md %}) for more information.
+See [Customization]({% link docs/customization.md %}) for more information.
 
 ## Google Analytics
 

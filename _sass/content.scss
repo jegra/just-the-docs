@@ -251,4 +251,20 @@
     margin-bottom:.5em;
   }
 
+  
+
+}
+
+@if $hasBanner {
+  @include mq(md) {
+    // Offset for banner
+    #top:before { 
+      content: ''; 
+      display: block; 
+      position: relative; 
+      width: 0; 
+      height: $banner-height; 
+      margin-top: -$banner-height; 
+    }
+  }
 }

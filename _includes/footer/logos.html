@@ -1,0 +1,29 @@
+<div class="footer-logos">
+  {% for item in site.footer_logos %}
+    <div class="footer-logo">
+      {% if item.image != nil and item.image != "" %}
+        {% assign hasImg = true %}
+      {% else %}
+        {% assign hasImg = false %}
+      {% endif %}
+
+      {% if item.url != nil and item.url != "" %}
+        {% assign hasUrl = true %}
+      {% else %}
+        {% assign hasUrl = false %}
+      {% endif %}
+
+      {% if hasUrl %}
+        <a href="{{ item.url }}" target="_blank" {% if hasImg %}class="image-link"{% endif %}}>
+      {% endif %}
+        {% if hasImg %}
+          <img src="{{ item.image | relative_url }}" alt="{{ item.name }}">
+        {% else %}
+          {{ item.name }}
+        {% endif %}
+      {% if hasUrl %}
+        </a>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
