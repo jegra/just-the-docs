@@ -1,6 +1,9 @@
 {% if site.logo %}
   $logo: "{{ site.logo | absolute_url }}";
 {% endif %}
+{% if site.hero_background %}
+  $heroBackground: "{{ site.hero_background | absolute_url }}";
+{% endif %}
 {% if site.banner_links.lsp or site.banner_links.hits %}
   $hasBanner: true;
 {% else %}

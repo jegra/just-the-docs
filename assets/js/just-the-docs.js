@@ -35,19 +35,16 @@ function initNav() {
     }
   });
 
-  const siteNav = document.getElementById('site-nav');
-  const mainHeader = document.getElementById('main-header');
   const menuButton = document.getElementById('menu-button');
+  const sideBarContent = document.getElementById('side-bar-content');
 
   jtd.addEvent(menuButton, 'click', function(e){
     e.preventDefault();
 
     if (menuButton.classList.toggle('nav-open')) {
-      siteNav.classList.add('nav-open');
-      mainHeader.classList.add('nav-open');
+      sideBarContent.classList.add('nav-open');
     } else {
-      siteNav.classList.remove('nav-open');
-      mainHeader.classList.remove('nav-open');
+      sideBarContent.classList.remove('nav-open');
     }
   });
 
@@ -109,6 +106,39 @@ function initSearch() {
   };
 
   request.send();
+
+  // Let's also set up a mechanism to move the search field from
+  // its desktop position to its mobile position, based on 
+  // current screen width.
+  var searchEl = document.querySelector('#search');
+  var desktopSearchContainer = document.querySelector('#search-desktop-container');
+  var mobileSearchContainer = document.querySelector('#search-mobile-container');
+  var searchOverlay = document.querySelector('#search-overlay');
+  var main = document.querySelector('.main');
+
+  var mql = window.matchMedia('(min-width: 1024px)');
+  mql.addEventListener('change', function (event) {
+    if (event.matches) {
+      setDesktopSearch();
+    } else {
+      setMobileSearch();
+    }
+  });
+  if (!mql.matches) {
+      // If we're currently on mobile, move the search field into position
+      setMobileSearch();
+  }
+
+  function setMobileSearch() {
+    mobileSearchContainer.append(searchEl);
+    mobileSearchContainer.append(searchOverlay);
+  }
+  function setDesktopSearch() {
+    desktopSearchContainer.append(searchEl);
+    main.append(searchOverlay);
+  }
+
+
 }
 
 function searchLoaded(index, docs) {
@@ -464,6 +494,7 @@ function initScrollTracking() {
     var debounce = null;
     var doc = document.documentElement;
     var body = document.body;
+    var threshold = 100;
     document.addEventListener('scroll', function(event) {
         if (!debounce) {
             debounce = setTimeout(function() {
@@ -475,11 +506,11 @@ function initScrollTracking() {
 
     function checkLocation() {
         var top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-        if (top === 0 && !atTop) {
+        if (top < threshold && !atTop) {
             // We were away, and now we're back
             body.classList.remove('scrolled');
             atTop = true;
-        } else if (top !== 0 && atTop) {
+        } else if (top >= threshold && atTop) {
             // We've scrolled away
             body.classList.add('scrolled');
             atTop = false;

@@ -1,4 +1,4 @@
-{% if site.logo %}
+{% if site.logo != nil and site.logo != "" %}
   <div class="site-logo"></div>
 {% else %}
   {{ site.title }}

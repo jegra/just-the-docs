@@ -8,6 +8,14 @@ layout: table_wrappers
   {% assign hasBanner = false %}
 {% endif %}
 
+{% if page.hero_heading or page.hero_body or page.hero_ctas %}
+  {% assign hasHeroContent = true %}
+{% else %}
+  {% assign hasHeroContent = false %}
+{% endif %}
+
+
+
 <!DOCTYPE html>
 
 <html lang="{{ site.lang | default: 'en-US' }}">
@@ -50,36 +58,50 @@ layout: table_wrappers
   </svg>
 
   <div class="side-bar">
+  
     <div class="site-header">
-      <a href="{{ '/' | absolute_url }}" class="site-title lh-tight">{% include title.html %}</a>
+      <a href="{{ '/' | absolute_url }}" class="site-title lh-tight offscreen-at-start">{% include title.html %}</a>
       <a href="#" id="menu-button" class="site-button">
         <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
       </a>
     </div>
-    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
-      {% include nav/main.html %}
-    </nav>
-    {% comment %}
-    <footer class="site-footer">
-      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
-    </footer>
-    {% endcomment %}
-  </div>
-  <div class="main" id="top">
-    <div id="main-header" class="main-header">
+    <div class="side-bar-content" id="side-bar-content">
+      <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+        {% include nav/main.html %}
+      </nav>
       {% if site.search_enabled != false %}
-        <div class="search">
-          <div class="search-input-wrap">
-            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search {{ site.title }}" aria-label="Search {{ site.title }}" autocomplete="off">
-            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
-          </div>
-          <div id="search-results" class="search-results"></div>
-        </div>
+        <div id="search-mobile-container"></div>
       {% endif %}
-      {% include header_custom.html %}
       {% if hasBanner %}
         {% include banner_mobile.html %}
       {% endif %}
+      {% comment %}
+      <footer class="site-footer">
+        This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+      </footer>
+      {% endcomment %}
+    </div>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+      <div class="main-branding">
+        <a href="{{ '/' | absolute_url }}" class="site-title lh-tight">{% include title.html %}</a>
+      </div>
+      {% if site.search_enabled != false %}
+        <div id="search-desktop-container">
+          <div class="search" id="search">
+            <div class="search-input-wrap">
+              <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search {{ site.title }}" aria-label="Search {{ site.title }}" autocomplete="off">
+              <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+            </div>
+            <div id="search-results" class="search-results"></div>
+          </div>
+        </div>
+      {% endif %}
+      {% if hasHeroContent %}
+        {% include hero.html %}
+      {% endif %}
+      {% include header_custom.html %}
     </div>
     <div id="main-content-wrap" class="main-content-wrap">
 
@@ -124,7 +146,7 @@ layout: table_wrappers
         </a>
       {% endif %}
 
-      <div class="search-overlay"></div>
+      <div class="search-overlay" id="search-overlay"></div>
     {% endif %}
   </div>
 </body>

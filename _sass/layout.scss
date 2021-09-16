@@ -5,7 +5,6 @@
   background: $white;
   position:fixed;
   width:100%;
-  z-index:3;
   top:0;
   display:none;
   border-bottom:1px solid $white;
@@ -34,6 +33,7 @@
 
   @include mq(md) {
     display:block;
+    z-index:3;
   }
 }
 
@@ -70,6 +70,7 @@
 .banner-mobile {
   background:url(../images/banner-background.svg) left top repeat;
   border-bottom:1px solid $grey-lt-200;
+  width:100%;
 
   .brand-list {
     padding:1px 0;
@@ -137,19 +138,22 @@
 //
 
 .side-bar {
-  z-index: 0;
   display: flex;
   flex-wrap: wrap;
   background-color: $sidebar-color;
+  position: fixed;
+  top:0;
+  width:100%;
+  z-index:1;
 
   @include mq(md) {
     flex-wrap: nowrap;
-    position: fixed;
     width: $nav-width-md;
     height: 100%;
     flex-direction: column;
     border-right: $border $border-color;
     align-items: flex-end;
+    top:auto;
   }
 
   @include mq(lg) { 
@@ -193,28 +197,55 @@
   }
 }
 
+// Used on both mobile and desktop - displays the initial
+// (large) branding, hero background image, and (optional)
+// hero messaging text.
 .main-header {
   z-index: 0;
-  display: none;
-  background-color: $sidebar-color;
+  // display: none;
+  // background-color: $sidebar-color;
+  
+
+  // &.nav-open {
+  //   display: block;
+
+  //   @include mq(md) {
+  //     display: flex;
+  //   }
+  // }
+}
+
+@if variable-exists(heroBackground) {
+  // If we have a hero background image, render it out, and add
+  // some padding at the bottom of the .main-header element, so 
+  // a bit more of the bg image can be seen.
+  .main-header {
+    background:url($heroBackground) center no-repeat;
+    background-size:cover;
+    padding-bottom:35px;
+  
+    @include mq(md) {
+      padding-bottom:55px;
+    }
+    @include mq(lg) {
+      padding-bottom:75px;
+    }
+  }
+} 
+
+.main-branding {
+  @include background-opacity($branding-background-color, $branding-background-opacity);
+  height: $branding-height;
 
   @include mq(md) {
-    display: flex;
-    justify-content: space-between;
-    height: $header-height;
-    background-color: $body-background-color;
-    border-bottom: $border $border-color;
+    height: $branding-height-md;
   }
-
-  &.nav-open {
-    display: block;
-
-    @include mq(md) {
-      display: flex;
-    }
+  @include mq(lg) {
+    height: $branding-height-lg;
   }
 }
 
+.side-bar-content,
 .site-nav,
 .site-header,
 .site-footer {
@@ -231,64 +262,116 @@
   }
 }
 
-.site-nav {
-  display: none;
-  transition:padding 0.2s ease-out;
+// wrapper for nav, mobile search, and mobile banner
+.side-bar-content {
+  max-height: calc(100vh - #{$header-height});
+  position:relative;
+  margin-top:-100vh;
+  transition:margin 0.5s ease-out, box-shadow 0.5s ease-out;
+  box-shadow: 0 1px 18px rgba(0, 0, 0, 0);
+  overflow-y:auto;
 
   &.nav-open {
-    display: block;
+    box-shadow: 0 1px 18px rgba(0, 0, 0, 0.3);
+    margin-top:0;
   }
 
   @include mq(md) {
+    box-shadow:none;
+    margin-top:0;
+    transition:none;
+    max-height:none;
+  }
+}
+
+.site-nav {
+  // display: none;
+  transition:padding 0.2s ease-out;
+
+  // &.nav-open {
+  //   display: block;
+  // }
+
+  @include mq(md) {
     display: block;
-    padding-top: $sp-10;
+    padding-top: 45px;
     padding-bottom: $gutter-spacing-sm;
     overflow-y: auto;
     flex: 1 1 auto;
   }
-  @include mq(lg) {
-    padding-top: 110px;
-  }
-  @include mq(xl) {
-    padding-top: 150px;
-  }
+  // @include mq(lg) {
+  //   padding-top: 110px;
+  // }
+  // @include mq(xl) {
+  //   padding-top: 150px;
+  // }
 }
 
+// On mobile - it is used to display the menu
+// toggle and branding (based on scroll position).
+// On desktop - it displays the site name/logo 
+// in the sidebar when user scrolls away from top
 .site-header {
   display: flex;
   min-height: $header-height;
   align-items: center;
+  z-index:3;
+  position:relative;
+  background-color: $sidebar-color;
+
+  // Adjust the padding when the title is
+  // displayed within the site-header element
+  .site-title {
+    @include mq(md) {
+      padding-top: $sp-4;
+      padding-bottom: $sp-4;
+    }
+    @include mq(lg) {
+      padding: $sp-4 $gutter-spacing;
+    }
+  }
 
   @include mq(md) {
-    // height: $header-height;
+    height: $header-height;
+    margin-top:45px;
     // max-height: $header-height;
     // border-bottom: $border $border-color;
-    display:none;
+    // display:none;
   }
 }
 
 .site-title {
-  padding-right: $gutter-spacing-sm;
-  padding-left: $gutter-spacing-sm;
-
+  @include fs-8;
   flex-grow: 1;
   display: flex;
   height: 100%;
   align-items: center;
-  padding-top: $sp-3;
-  padding-bottom: $sp-3;
   color: $body-heading-color;
-  @include fs-6;
-
+  padding: $sp-4 $gutter-spacing-sm;
+  
   @include mq(sm) {
     padding-right: $gutter-spacing;
     padding-left: $gutter-spacing;
   }
   @include mq(md) {
-    padding-top: $sp-2;
-    padding-bottom: $sp-2;
+    @include fs-10;
+    padding-top: $sp-5;
+    padding-bottom: $sp-5;
+  }
+  @include mq(lg) {
+    padding: 40px;
   }
 }
+
+.offscreen-at-start {
+  position:relative;
+  transform:translateY(-200px);
+  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.scrolled .offscreen-at-start {
+  transform:translateY(0);
+}
+
 
 @if variable-exists(logo) {
   .site-logo {
@@ -298,6 +381,22 @@
     background-repeat: no-repeat;
     background-position: left center;
     background-size: contain;
+  }
+} @else {
+  .site-header {
+    // In the site-header context (top header bar on mobile,
+    // and side-bar branding on desktop), the site title needs
+    // to be displayed in a smaller font size when using text 
+    // (ie no logo), which also affects top/bottom padding
+    .site-title {
+      @include fs-5;
+      padding-top: $sp-2;
+      padding-bottom: $sp-2;
+
+      @include mq(lg) {
+        @include fs-6;
+      }
+    }
   }
 }
 
@@ -315,14 +414,6 @@
   }
 }
 
-.site-title:hover {
-  background-image: linear-gradient(
-    -90deg,
-    rgba($feedback-color, 1) 0%,
-    rgba($feedback-color, 0.8) 80%,
-    rgba($feedback-color, 0) 100%
-  );
-}
 
 .site-button:hover {
   background-image: linear-gradient(
@@ -331,6 +422,17 @@
     rgba($feedback-color, 0.8) 100%
   );
 }
+
+
+//
+// Search field
+//
+#search-mobile-container {
+  position:relative;
+  width:100%;
+  // z-index:4;
+}
+
 
 // stylelint-disable selector-max-type
 

@@ -1,0 +1,15 @@
+<div class="hero">
+    <div class="hero-inner">
+        {% if page.hero_heading %}
+            <h2 class="hero-heading">{{ page.hero_heading }}</h2>
+        {% endif %}
+        {% if page.hero_body %}
+            <div class="hero-body">{{ page.hero_body }}</div>
+        {% endif %}
+        {% if page.hero_ctas and page.hero_ctas|length %}
+            {% for cta in page.hero_ctas %}
+                <a href="{{ cta.link }}" {% if cta.target %}target="{{ cta.target }}"{% endif %} class="btn">{{ cta.label }}</a>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

@@ -77,10 +77,16 @@ $table-background-color: $white !default;
 $code-background-color: $grey-lt-000 !default;
 $feedback-color: darken($sidebar-color, 3%) !default;
 $footer-background-color: $grey-dk-000 !default;
+$branding-background-color: darken($sidebar-color, 3%) !default;
+$branding-background-opacity: 1 !default;
+$hero-background-color: $grey-dk-200 !default;
+$hero-background-opacity: .85 !default;
 
 $body-text-color: $grey-dk-100 !default;
 $body-heading-color: $blue-300 !default;    // Default heading color
 $body-heading-2-color: $blue-200 !default;  // Target H2 heading color
+$hero-heading-color: $white !default;
+$hero-body-color: $white !default;
 $search-result-preview-color: $grey-dk-000 !default;
 $nav-child-link-color: $grey-dk-100 !default;
 $link-color: $purple-000 !default;
@@ -149,8 +155,11 @@ $content-width: 1430px !default;
 $content-width-xxxl: 1500px !default;
 $header-height: 60px !default;
 $banner-height: 48px !default;
+$branding-height: 75px !default;
+$branding-height-md: 110px !default;
+$branding-height-lg: 150px !default;
 $search-results-width: $content-width - $nav-width-lg !default;
-$transition-duration: 400ms;
+$transition-duration: 400ms !default;
 
 //
 // Media queries in pixels

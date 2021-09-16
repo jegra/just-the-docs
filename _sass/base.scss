@@ -13,20 +13,23 @@
 }
 
 html {
-  @include fs-4;
   scroll-behavior: smooth;
 }
 
 body {
+  @include fs-4;
   font-family: $body-font-family;
-  font-size: inherit;
   line-height: $body-line-height;
   color: $body-text-color;
   background-color: $body-background-color;
+  padding-top:$header-height; // Space for fixed mobile header bar
+
   @if $hasBanner {
     @include mq(md) {
-      padding-top:$banner-height;
+      padding-top:$banner-height; // Space for branding banner on desktop
     }
+  } @else {
+    padding-top:0;
   }
 }
 
