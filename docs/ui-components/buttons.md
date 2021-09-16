@@ -22,21 +22,25 @@ nav_order: 2
 
 <div class="code-example" markdown="1">
 [Link button](http://example.com/){: .btn }
+[Link button](http://example.com/){: .btn .btn-primary }
 
-[Link button](http://example.com/){: .btn .btn-purple }
 [Link button](http://example.com/){: .btn .btn-blue }
 [Link button](http://example.com/){: .btn .btn-green }
 
 [Link button](http://example.com/){: .btn .btn-outline }
+
+[Link button](http://example.com/){: .btn .btn-outline .btn-arrow }
 </div>
 ```markdown
 [Link button](http://example.com/){: .btn }
+[Link button](http://example.com/){: .btn .btn-primary }
 
-[Link button](http://example.com/){: .btn .btn-purple }
 [Link button](http://example.com/){: .btn .btn-blue }
 [Link button](http://example.com/){: .btn .btn-green }
 
 [Link button](http://example.com/){: .btn .btn-outline }
+
+[Link button](http://example.com/){: .btn .btn-outline .btn-arrow }
 ```
 
 ### Button element
@@ -52,29 +56,25 @@ GitHub Flavored Markdown does not support the `button` element, so you'll have t
 
 ---
 
-## Using utilities with buttons
+## ADDITIONAL MODIFICATIONS
 
 ### Button size
 
-Wrap the button in a container that uses the [font-size utility classes]({{ site.baseurl }}{% link docs/utilities/typography.md %}) to scale buttons:
+Use the `btn-large` class to increase the size of the button:
 
 <div class="code-example" markdown="1">
-<span class="fs-6">
-[Big ass button](http://example.com/){: .btn }
-</span>
+[Large button](http://example.com/){: .btn .btn-large }
 
-<span class="fs-3">
-[Tiny ass button](http://example.com/){: .btn }
-</span>
+[Large button](http://example.com/){: .btn .btn-large .btn-arrow }
+
+[Large button](http://example.com/){: .btn .btn-large .btn-arrow .btn-outline }
 </div>
 ```markdown
-<span class="fs-8">
-[Link button](http://example.com/){: .btn }
-</span>
+[Large button](http://example.com/){: .btn .btn-large }
 
-<span class="fs-3">
-[Tiny ass button](http://example.com/){: .btn }
-</span>
+[Large button](http://example.com/){: .btn .btn-large .btn-arrow }
+
+[Large button](http://example.com/){: .btn .btn-large .btn-arrow .btn-outline }
 ```
 
 ### Spacing between buttons

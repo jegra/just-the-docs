@@ -4,17 +4,18 @@
 // stylelint-disable color-named
 
 .btn {
+  @include fs-3;
   display: inline-block;
   box-sizing: border-box;
-  padding-top: 0.3em;
+  padding-top: 0.7em;
   padding-right: 1em;
-  padding-bottom: 0.3em;
+  padding-bottom: 0.6em;
   padding-left: 1em;
   margin: 0;
   font-family: inherit;
-  font-size: inherit;
-  font-weight: 500;
-  line-height: 1.5;
+  // font-size: inherit;
+  font-weight: 400;
+  line-height: 1.2;
   color: $link-color;
   text-decoration: none;
   vertical-align: baseline;
@@ -24,6 +25,7 @@
   border-radius: $border-radius;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
   appearance: none;
+  text-transform:uppercase;
 
   &:focus {
     text-decoration: none;
@@ -76,8 +78,8 @@
 
 .btn-outline {
   color: $link-color;
-  background: transparent;
-  box-shadow: inset 0 0 0 2px $grey-lt-300;
+  background: $white;
+  box-shadow: inset 0 0 0 2px $link-color;
 
   &:hover,
   &:active,
@@ -85,19 +87,53 @@
   &.zeroclipboard-is-active {
     color: darken($link-color, 4%);
     text-decoration: none;
-    background-color: transparent;
-    box-shadow: inset 0 0 0 3px $grey-lt-300;
+    background-color: $white;
+    box-shadow: inset 0 0 0 3px $link-color;
   }
 
   &:focus {
     text-decoration: none;
     outline: none;
-    box-shadow: inset 0 0 0 2px $grey-dk-100, 0 0 0 3px rgba(blue, 0.25);
+    box-shadow: inset 0 0 0 2px $link-color, 0 0 0 3px rgba($link-color, 0.25);
   }
 
   &:focus:hover,
   &.selected:focus {
-    box-shadow: inset 0 0 0 2px $grey-dk-100;
+    box-shadow: inset 0 0 0 2px $link-color;
+  }
+}
+
+.btn-arrow {
+  display:inline-flex;
+  align-items:center;
+
+  &::after {
+    content:"";
+    width:50px;
+    height:17px;
+    margin-left:.5em;
+    display:inline-block;
+    background-color:$link-color;
+    mask:url(../images/arrow.svg) no-repeat 0% 50%;
+    -webkit-mask:url(../images/arrow.svg) no-repeat 0% 50%;
+    mask-size:contain;
+    -webkit-mask-size:contain;
+    transition:transform 0.2s ease-out;
+  }
+
+  &.btn-large {
+    @include mq(sm) {
+      &::after {
+        width:72px;
+        height:24px;
+      }
+    }
+  }
+
+  &:hover {
+    &::after {
+      transform:translateX(5px);
+    }
   }
 }
 
@@ -115,4 +151,8 @@
 
 .btn-green {
   @include btn-color($white, $green-100);
+}
+
+.btn-large {
+  @include fs-5;
 }

@@ -116,6 +116,7 @@ function initSearch() {
   var searchOverlay = document.querySelector('#search-overlay');
   var main = document.querySelector('.main');
 
+  // Use 'md' breakpoint value from our SASS config...
   var mql = window.matchMedia('(min-width: 1024px)');
   mql.addEventListener('change', function (event) {
     if (event.matches) {
