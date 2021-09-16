@@ -59,6 +59,14 @@
     color: $hero-body-color;
     line-height:1.4;
     margin-bottom:1em;
+
+    a {
+        color: $hero-link-color;
+
+        &:hover {
+            background-image: none;
+        }
+    }
     
     @include mq(lg) {
         @include fs-8;
