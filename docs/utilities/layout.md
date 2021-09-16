@@ -125,3 +125,36 @@ These headings will be `inline-block`:
 ### heading 3
 {: .d-inline-block }
 ```
+
+## Grid
+
+When grid structures are needed, the provided grid utility classes -- in conjunction with some basic HTML wrapper elements -- can be used to build responsive grid layouts.  
+
+Grids are based on a 12 column layout, where classes are used to indicate how many of the 12 columns should be filled by the child element at a particular breakpoint.  For example, `col-sm-6` means that at the `sm` breakpoint (and up), the element should fill 6 of the 12 'base' columns (ie should fill half of the space of the parent row).
+
+| Classname (/prefix) | What it does          |
+|:------------------  |:------------------------|
+| `.row`              | when added to a parent element, creates a grid row        |
+| `.col-xs-`          | when added to a child element, creates a column at the smallest screen widths        |
+| `.col-sm-`          | specifies a column at the `sm` breakpoint       |
+| `.col-md-`          | specifies a column at the `md` breakpoint |
+| `.col-lg-`          | specifies a column at the `lg` breakpoint         |
+
+
+#### Examples
+{: .no_toc }
+
+Here is a sample grid layout, where each child element within the grid row will fill the full screen width at the smallest (`xs`) browser sizes (12 of 12 columns), and then will switch to half screen width (6 of 12 columns) when the 'small' (`sm`) screen breakpoint is hit:
+
+```html
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <!-- This content will take up 6/12 (or 1/2) of the container at the `sm` breakpoint -->
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <!-- This content will take up 6/12 (or 1/2) of the container at the `sm` breakpoint -->
+  </div>
+</div>
+```
+
+The grid system is based on the [Flexbox Grid](https://github.com/kristoferjoseph/flexboxgrid) project. More information, including details on alignment, offsets, and nesting, can be found [here](http://flexboxgrid.com/). 
