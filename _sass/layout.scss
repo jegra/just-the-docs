@@ -233,15 +233,38 @@
   }
 } 
 
+// Main hero branding area, where title/logo is displayed
+// in the main content area (both mobile and desktop)
 .main-branding {
   @include background-opacity($branding-background-color, $branding-background-opacity);
   height: $branding-height;
+  position:relative;
+  // display:flex;
 
   @include mq(md) {
     height: $branding-height-md;
   }
   @include mq(lg) {
     height: $branding-height-lg;
+  }
+
+  // When the site-title is displayed within the main-branding
+  // area, we need some spacing adjustments made
+  .site-title {
+    max-width:1200px;
+
+    @include mq(md) {
+      margin-right:110px;
+    }
+    @include mq(lg) {
+      margin-right:140px;
+    }
+    @include mq(xl) {
+      margin-right:170px;
+    }
+    @include mq(xxl) {
+      margin-right:190px;
+    }
   }
 }
 
@@ -431,6 +454,58 @@
   position:relative;
   width:100%;
   // z-index:4;
+}
+#search-desktop-container {
+  @include container;
+  position:absolute;
+  z-index:2;
+  height:60px;
+  top:50%;
+  transform:translateY(-50%);
+  width:100%;
+  display:flex;
+  justify-content: flex-end;
+
+
+
+  .search {
+    flex:0 0 92px;
+    transition: flex-basis 0.2s ease-out;
+  }
+  .search-input {
+    background-color: transparent;
+    padding:1em .25em 1em 2.5em;
+    
+    &::placeholder {
+      @include fs-2;
+      text-transform:uppercase;
+      color: $link-color;
+    }
+  }
+  .search-label {
+    padding-left:.75em;
+  }
+}
+#svg-search svg {
+  @include mq(md) {
+    stroke: $link-color !important;
+  }
+}
+.search-active {
+  #search-desktop-container {
+    .search {
+      flex:0 0 100%;
+    }
+    .search-input {
+      @include fs-3;
+      background-color: $white;
+    }
+    .search-input-wrap,
+    .search-results {
+      width:100%;
+      max-width:none;
+    }
+  }
 }
 
 
