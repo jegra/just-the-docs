@@ -172,6 +172,8 @@
     position: relative;
     margin-left: $nav-width-md;
 
+    /*
+    TODO: Debug search layering issue
     display:flex;
     flex-direction:column;
     @if $hasBanner {
@@ -179,6 +181,7 @@
     } @else {
       min-height: 100vh;
     }
+    */
   }
 
   @include mq(lg) { 
