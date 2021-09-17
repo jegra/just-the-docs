@@ -1,9 +1,13 @@
 .basic-cards {
+    margin-bottom: 40px;
+    
     @include mq(sm) {
         @include flex-grid(2,50px);
+        margin-bottom: 60px;
     }
     @include mq(lg) {
         @include flex-grid(2, 100px);
+        margin-bottom: 80px;
     }
 }
 .basic-card {
