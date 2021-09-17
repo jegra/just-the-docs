@@ -18,6 +18,11 @@
     transition: none;
   }
 }
+.search-active {
+  .search {
+    z-index: 4;
+  }
+}
 
 .search-input-wrap {
   position: relative;
