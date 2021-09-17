@@ -189,11 +189,11 @@
 .main-content-wrap {
   @include container;
   padding-top: $gutter-spacing-sm;
-  padding-bottom: $gutter-spacing-sm;
+  padding-bottom: $gutter-spacing-lg;
 
   @include mq(md) {
     padding-top: $gutter-spacing;
-    padding-bottom: $gutter-spacing;
+    padding-bottom: $gutter-spacing-xl;
   }
 }
 
