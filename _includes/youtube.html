@@ -1,0 +1,61 @@
+
+{% comment %}
+
+  Full parameter list: https://developers.google.com/youtube/player_parameters
+
+{% endcomment %}
+
+{% if include.fullscreen != nil and include.fullscreen == false %}
+    {% assign fullscreen = '0' %}
+{% else %}
+    {% assign fullscreen = '1' %}
+{% endif %}
+
+{% if include.playsinline != nil and include.playsinline == true %}
+    {% assign playsinline = '1' %}
+{% else %}
+    {% assign playsinline = '0' %}
+{% endif %}
+
+{% if include.autoplay != nil and include.autoplay == true %}
+    {% assign autoplay = '1' %}
+{% else %}
+    {% assign autoplay = '0' %}
+{% endif %}
+
+{% if include.controls != nil and include.controls == false %}
+    {% assign controls = '0' %}
+{% else %}
+    {% assign controls = '1' %}
+{% endif %}
+
+{% if include.related != nil and include.related == false %}
+    {% assign related = '0' %}
+{% else %}
+    {% assign related = '1' %}
+{% endif %}
+
+{% if include.mute != nil and include.mute == true %}
+    {% assign mute = '1' %}
+{% else %}
+    {% assign mute = '0' %}
+{% endif %}
+
+{% if include.loop != nil and include.loop == true %}
+    {% assign loop = '1' %}
+{% else %}
+    {% assign loop = '0' %}
+{% endif %}
+
+{% if include.playlist != nil and include.playlist != '' %}
+    {% assign playlistStr = '&playlist=' | append: include.playlist %}
+{% elsif include.loop == true %}
+    {% assign playlistStr = '&playlist=' | append: include.id %}
+{% else %}
+    {% assign playlistStr = '' %}
+{% endif %}
+
+
+<div class="video-wrapper">
+  <iframe src="https://www.youtube.com/embed/{{ include.id }}?fs={{ fullscreen }}&playsinline={{ playsinline }}&autoplay={{ autoplay }}&controls={{ controls }}&rel={{ related }}&loop={{ loop }}&mute={{ mute }}&modestbranding=1{{ playlistStr }}" allowfullscreen></iframe>
+</div>
