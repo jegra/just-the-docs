@@ -171,6 +171,14 @@
   @include mq(md) { 
     position: relative;
     margin-left: $nav-width-md;
+
+    display:flex;
+    flex-direction:column;
+    @if $hasBanner {
+      min-height:calc(100vh - #{$banner-height});
+    } @else {
+      min-height: 100vh;
+    }
   }
 
   @include mq(lg) { 
@@ -529,6 +537,7 @@ body {
   padding-bottom: $sp-6;
   background-color: $footer-background-color;
   color: $footer-text-color;
+  margin-top:auto;
 
   a {
     color: $footer-link-color;
