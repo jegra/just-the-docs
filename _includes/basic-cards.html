@@ -1,0 +1,7 @@
+<div class="basic-cards">
+    {% for card in include.cards %}
+        <div class="basic-card">
+            {{ card|markdownify }}
+        </div>
+    {% endfor %}
+</div>

@@ -56,3 +56,53 @@
 
 }
 
+// Separator bar
+
+@mixin separator($topMargin: 55px, $bottomMargin: 55px) {
+  &:before {
+    content:"";
+    display:block;
+    width:120px;
+    height:2px;
+    background-color: $separator-color;
+    margin-top:$topMargin;
+    margin-bottom:$bottomMargin;
+  }
+}
+
+
+// ------------------------------------------------------------------
+// Basic flex grid mixin
+// ------------------------------------------------------------------
+
+// For setting up a flex-based grid.  This mixin should be included
+// in the container definition of the grid.  A default gutter value 
+// will be used if none is provided.
+//
+//  Usage:
+//  .parent-element {
+//      @include flex-grid(3);   // Generates a 3 column grid, using default gutter
+//  }
+
+
+@mixin flex-grid($numColumns, $gutterWidth: 30px) {
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:row;
+
+  > * {
+      flex-grow:0;
+      flex-shrink:1;
+      flex-basis: calc((100% - #{($gutterWidth * ($numColumns - 1) + .1)}) / #{$numColumns});
+      margin-right:$gutterWidth;
+      margin-left:0;
+  
+      &:nth-child(1n) {
+          // Clear out our previous right margin settings
+          margin-right:$gutterWidth;
+      }
+      &:nth-child(#{$numColumns}n+#{$numColumns}) {
+          margin-right:0;
+      }
+  }
+}

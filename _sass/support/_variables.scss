@@ -96,6 +96,7 @@ $base-button-color: #f7f7f7 !default;
 $footer-text-color: $white !default;
 $footer-link-color: $white !default;
 
+
 //
 // Spacing
 //
@@ -135,8 +136,10 @@ $border: 1px solid !default;
 $border-radius: 0 !default;
 $border-color: $grey-lt-100 !default;
 
+$separator-color: $blue-300 !default;
+
 //
-// Grid system
+// Layout system
 //
 
 $gutter-spacing: $sp-6 !default;
