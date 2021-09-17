@@ -228,23 +228,6 @@
       margin-top: 0;
     }
     
-    @if $hasBanner {
-      @include mq(md) {
-        // Offset for banner
-        &:before { 
-          content: ''; 
-          display: block; 
-          position: relative; 
-          width: 0; 
-          height: $banner-height; 
-          margin-top: -$banner-height; 
-        }
-        > .anchor-heading {
-          top:#{$banner-height / 2};
-        }
-      }
-    }
-    
   }
 
   h1 {
@@ -253,18 +236,4 @@
 
   
 
-}
-
-@if $hasBanner {
-  @include mq(md) {
-    // Offset for banner
-    #top:before { 
-      content: ''; 
-      display: block; 
-      position: relative; 
-      width: 0; 
-      height: $banner-height; 
-      margin-top: -$banner-height; 
-    }
-  }
 }
