@@ -171,9 +171,6 @@
   @include mq(md) { 
     position: relative;
     margin-left: $nav-width-md;
-
-    /*
-    TODO: Debug search layering issue
     display:flex;
     flex-direction:column;
     @if $hasBanner {
@@ -181,7 +178,6 @@
     } @else {
       min-height: 100vh;
     }
-    */
   }
 
   @include mq(lg) { 
@@ -201,6 +197,7 @@
   @include container;
   padding-top: $gutter-spacing-sm;
   padding-bottom: $gutter-spacing-lg;
+  width:100%;
 
   @include mq(md) {
     padding-top: $gutter-spacing;
@@ -212,7 +209,7 @@
 // (large) branding, hero background image, and (optional)
 // hero messaging text.
 .main-header {
-  z-index: 0;
+  z-index: 1;
   // display: none;
   // background-color: $sidebar-color;
   

@@ -1,0 +1,34 @@
+.image-card {
+    margin-bottom: 40px;
+
+    @include mq(sm) {
+        margin-bottom: 3rem;
+    }
+}
+.image-card__figure {
+    img {
+        display:block;
+        transition: transform 0.4s ease-out;
+    }
+}
+.image-card__link {
+    display:block;
+    overflow:hidden;
+
+    &:hover {
+        img {
+            transform:scale(1.03);
+        }
+    }
+}
+.image-card__label {
+    @include fs-5;
+    line-height:1.3;
+    padding:16px 20px;
+    color: $image-card-label-color;
+    background-color: $image-card-label-background-color;
+    
+    @include mq(md) {
+        padding:20px 30px;
+    }
+}

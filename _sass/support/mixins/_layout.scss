@@ -58,7 +58,7 @@
 
 // Separator bar
 
-@mixin separator($topMargin: 55px, $bottomMargin: 55px) {
+@mixin separator($topMargin: 3rem, $bottomMargin: 3rem) {
   &:before {
     content:"";
     display:block;

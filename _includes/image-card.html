@@ -1,0 +1,13 @@
+<div class="image-card">
+    <figure class="image-card__figure">
+        {% if include.link %}
+            <a href="{{ include.link }}" class="image-card__link">
+        {% endif %}
+            <img src="{{ include.image }}" alt="{{ include.label }}">
+        {% if include.link %}
+            </a>
+        {% endif %}
+            
+        <figcaption class="image-card__label">{{ include.label }}</figcaption>
+    </figure>
+</div>

@@ -114,7 +114,8 @@ function initSearch() {
   var desktopSearchContainer = document.querySelector('#search-desktop-container');
   var mobileSearchContainer = document.querySelector('#search-mobile-container');
   var searchOverlay = document.querySelector('#search-overlay');
-  var main = document.querySelector('.main');
+  var mainHeader = document.querySelector('#main-header');
+  // var main = document.querySelector('.main');
 
   // Use 'md' breakpoint value from our SASS config...
   var mql = window.matchMedia('(min-width: 1024px)');
@@ -136,7 +137,7 @@ function initSearch() {
   }
   function setDesktopSearch() {
     desktopSearchContainer.append(searchEl);
-    main.append(searchOverlay);
+    mainHeader.prepend(searchOverlay);
   }
 
 

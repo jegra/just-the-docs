@@ -1,0 +1,103 @@
+.basic-grid {
+
+    @include mq(sm) {
+        @include flex-grid(2,50px);
+        // margin-bottom: 60px;
+    }
+
+    > div {
+        margin-bottom: 40px;
+
+        p:last-of-type {
+            margin-bottom:0;
+        }
+
+        @include mq(sm) {
+            margin-bottom: 3rem;
+        }
+    }
+
+    &.with-dividers {
+        > div {
+            &:not(:nth-child(1)) {
+                @include separator(0px, 3rem);
+            }
+            @include mq(sm) {
+                &:nth-child(2) {
+                    &::before {
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+
+    // If the basic-grid is followed by an hr element,
+    // remove the top margin on the hr, as the grid itself
+    // has a bottom margin on it (via its inner elements).
+    + hr {
+        margin-top:0;
+    }
+}
+
+// The 'default' basic-grid has 2 columns above sm breakpoint,
+// (as do all grids), and then at lg breakpoint, adds some 
+// additional gutter space.
+.basic-grid:not(.three-column):not(.four-column) {
+    @include mq(lg) {
+        @include flex-grid(2, 100px);
+        // margin-bottom: 80px;
+    }
+}
+
+// The 'three-column' basic-grid has 3 columns above lg breakpoint.
+.basic-grid.three-column {
+    @include mq(lg) {
+        @include flex-grid(3, 50px);
+        // margin-bottom: 80px;
+    }
+
+    &.with-dividers {
+        > div {
+            @include mq(lg) {
+                &:nth-child(3) {
+                    &::before {
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+}
+// The 'four-column' basic-grid has 3 columns above lg breakpoint,
+// and then 4 columns above the xl breakpoint.
+.basic-grid.four-column {
+    @include mq(lg) {
+        @include flex-grid(3, 50px);
+        // margin-bottom: 80px;
+    }
+    @include mq(xl) {
+        @include flex-grid(4, 50px);
+        // margin-bottom: 80px;
+    }
+
+    &.with-dividers {
+        > div {
+            @include mq(lg) {
+                &:nth-child(3) {
+                    &::before {
+                        display:none;
+                    }
+                }
+            }
+            @include mq(xl) {
+                &:nth-child(4) {
+                    &::before {
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+}
+

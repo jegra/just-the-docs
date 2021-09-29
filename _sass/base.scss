@@ -112,9 +112,17 @@ img {
 }
 
 hr {
-  height: 1px;
-  padding: 0;
-  margin: $sp-6 0;
-  background-color: $border-color;
-  border: 0;
+  // height: 1px;
+  // padding: 0;
+  // margin: $sp-6 0;
+  // background-color: $border-color;
+  // border: 0;
+  position:relative;
+  display:table;
+  margin:3rem 0;
+  padding:0;
+  border:0;
+  width:120px;
+  height:2px;
+  background-color: $separator-color;
 }
