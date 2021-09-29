@@ -33,7 +33,7 @@
 
   @include mq(md) {
     display:block;
-    z-index:3;
+    z-index:4;
   }
 }
 
@@ -259,9 +259,11 @@
   // When the site-title is displayed within the main-branding
   // area, we need some spacing adjustments made
   .site-title {
-    max-width:1200px;
-
+    
     @include mq(md) {
+      position:relative;
+      z-index:3;  // Place above the searchbar layer, to allow click access
+      max-width:1200px;
       margin-right:110px;
     }
     @include mq(lg) {
@@ -373,6 +375,7 @@
 
 .site-title {
   @include fs-8;
+  font-weight:600;
   flex-grow: 1;
   display: flex;
   height: 100%;
@@ -501,6 +504,8 @@
 }
 .search-active {
   #search-desktop-container {
+    z-index:3; // Place above branding, to fix layering display
+
     .search {
       flex:0 0 100%;
     }

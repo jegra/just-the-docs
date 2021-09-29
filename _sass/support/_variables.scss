@@ -35,40 +35,40 @@ $font-size-10-sm: 44px !default; // Small size and up...
 $white: #fff !default;
 
 $grey-dk-000: #959396 !default;
-$grey-dk-100: #5c5962 !default;
-$grey-dk-200: #44434d !default;
-$grey-dk-250: #302d36 !default;
+$grey-dk-100: #6f6f71 !default;
+$grey-dk-200: #58585a !default;
+$grey-dk-250: #3d3d3e !default;
 $grey-dk-300: #27262b !default;
 
 $grey-lt-000: #f5f6fa !default;
-$grey-lt-100: #eeebee !default;
-$grey-lt-200: #ecebed !default;
-$grey-lt-300: #e6e1e8 !default;
+$grey-lt-100: #e8ecef !default;
+$grey-lt-200: #dce2e6 !default;
+$grey-lt-300: #d0d9de !default;
 
-$purple-000: #7253ed !default;
-$purple-100: #5e41d0 !default;
-$purple-200: #4e26af !default;
-$purple-300: #381885 !default;
+$purple-000: #b78acf !default;
+$purple-100: #9552b8 !default;
+$purple-200: #703187 !default;
+$purple-300: #462357 !default;
 
-$blue-000: #2c84fa !default;
-$blue-100: #2869e6 !default;
-$blue-200: #264caf !default;
-$blue-300: #183385 !default;
+$blue-000: #00add8 !default;
+$blue-100: #0078a5 !default;
+$blue-200: #2e6098 !default;
+$blue-300: #1e506c !default;
 
-$green-000: #41d693 !default;
-$green-100: #11b584 !default;
-$green-200: #009c7b !default;
-$green-300: #026e57 !default;
+$green-000: #8ddcd2 !default;
+$green-100: #53c8c8 !default;
+$green-200: #179aa3 !default;
+$green-300: #00535e !default;
 
-$yellow-000: #ffeb82 !default;
-$yellow-100: #fadf50 !default;
-$yellow-200: #f7d12e !default;
-$yellow-300: #e7af06 !default;
+$yellow-000: #faf0b6 !default;
+$yellow-100: #f8d082 !default;
+$yellow-200: #f57d20 !default;
+$yellow-300: #dd633a !default;
 
 $red-000: #f77e7e !default;
-$red-100: #f96e65 !default;
-$red-200: #e94c4c !default;
-$red-300: #dd2e2e !default;
+$red-100: #ce5e61 !default;
+$red-200: #af4041 !default;
+$red-300: #961d2b !default;
 
 $body-background-color: $white !default;
 $sidebar-color: $grey-lt-000 !default;
@@ -76,7 +76,7 @@ $search-background-color: $white !default;
 $table-background-color: $white !default;
 $code-background-color: $grey-lt-000 !default;
 $feedback-color: darken($sidebar-color, 3%) !default;
-$footer-background-color: $grey-dk-000 !default;
+$footer-background-color: $grey-dk-200 !default;
 $branding-background-color: darken($sidebar-color, 3%) !default;
 $branding-background-opacity: 1 !default;
 $hero-background-color: $grey-dk-200 !default;
@@ -90,7 +90,7 @@ $hero-body-color: $white !default;
 $hero-link-color: $white !default;
 $search-result-preview-color: $grey-dk-000 !default;
 $nav-child-link-color: $grey-dk-100 !default;
-$link-color: $purple-000 !default;
+$link-color: $purple-100 !default;
 $btn-primary-color: $purple-100 !default;
 $base-button-color: #f7f7f7 !default;
 $image-card-label-color: $white !default;
