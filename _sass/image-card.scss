@@ -6,8 +6,12 @@
     }
 }
 .image-card__figure {
+    background-color:rgba(126,126,126,.08);
+    display:inline-block;
+
     img {
         display:block;
+        margin:auto;
         transition: transform 0.4s ease-out;
     }
 }

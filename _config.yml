@@ -32,7 +32,7 @@ search:
   # Supports 1 - 6, default: 2
   heading_level: 2
   # Maximum amount of previews per search result
-  # Default: 3
+  # Default: 2
   previews: 2
   # Maximum amount of words to display before a matched word in the preview
   # Default: 5
@@ -47,7 +47,8 @@ search:
   # Display the relative url in search results
   # Supports true (default) or false
   rel_url: true
-  # Enable or disable the search button that appears in the bottom right corner of every page
+  # Enable or disable the search button that appears in the bottom right 
+  # corner of every page on desktop displays
   # Supports true or false (default)
   button: false
 
@@ -68,6 +69,10 @@ nav_cache: true # default, equivalent to nil
 
 # Footer content
 # appears at the bottom of every page's main content
+# Note: The footer_content option is deprecated and will be removed 
+# in a future major release. 
+# Please use `_includes/footer_custom.html` for more robust 
+# markup / liquid-based content.
 footer_content: 
 
 # Back to top link

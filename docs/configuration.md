@@ -51,14 +51,14 @@ search:
   # Supports 1 - 6, default: 2
   heading_level: 2
   # Maximum amount of previews per search result
-  # Default: 3
-  previews: 3
+  # Default: 2
+  previews: 2
   # Maximum amount of words to display before a matched word in the preview
-  # Default: 5
-  preview_words_before: 5
+  # Default: 3
+  preview_words_before: 3
   # Maximum amount of words to display after a matched word in the preview
-  # Default: 10
-  preview_words_after: 10
+  # Default: 3
+  preview_words_after: 3
   # Set the search token separator
   # Default: /[\s\-/]+/
   # Example: enable support for hyphenated search words
@@ -66,7 +66,8 @@ search:
   # Display the relative url in search results
   # Supports true (default) or false
   rel_url: true
-  # Enable or disable the search button that appears in the bottom right corner of every page
+  # Enable or disable the search button that appears in the bottom right 
+  # corner of every page on desktop displays
   # Supports true or false (default)
   button: false
 ```
@@ -89,7 +90,7 @@ heading_anchors: true
 # appears at the bottom of every page's main content
 # Note: The footer_content option is deprecated and will be removed in a future major release. 
 # Please use `_includes/footer_custom.html` for more robust markup / liquid-based content.
-footer_content: "Copyright &copy; 2017-2020 Patrick Marsceill."
+footer_content: "Copyright &copy; 2017-2021 Patrick Marsceill."
 
 # License information
 # Provide license information for the project
