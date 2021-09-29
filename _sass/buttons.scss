@@ -77,29 +77,29 @@
 }
 
 .btn-outline {
-  color: $link-color;
+  color: $arrow-btn-color;
   background: $white;
-  box-shadow: inset 0 0 0 2px $link-color;
+  box-shadow: inset 0 0 0 2px $arrow-btn-color;
 
   &:hover,
   &:active,
   &.zeroclipboard-is-hover,
   &.zeroclipboard-is-active {
-    color: darken($link-color, 4%);
+    color: darken($arrow-btn-color, 4%);
     text-decoration: none;
     background-color: $white;
-    box-shadow: inset 0 0 0 3px $link-color;
+    box-shadow: inset 0 0 0 3px $arrow-btn-color;
   }
 
   &:focus {
     text-decoration: none;
     outline: none;
-    box-shadow: inset 0 0 0 2px $link-color, 0 0 0 3px rgba($link-color, 0.25);
+    box-shadow: inset 0 0 0 2px $arrow-btn-color, 0 0 0 3px rgba($arrow-btn-color, 0.25);
   }
 
   &:focus:hover,
   &.selected:focus {
-    box-shadow: inset 0 0 0 2px $link-color;
+    box-shadow: inset 0 0 0 2px $arrow-btn-color;
   }
 }
 
@@ -113,7 +113,7 @@
     height:17px;
     margin-left:.5em;
     display:inline-block;
-    background-color:$link-color;
+    background-color:$arrow-btn-color;
     mask:url(../images/arrow.svg) no-repeat 0% 50%;
     -webkit-mask:url(../images/arrow.svg) no-repeat 0% 50%;
     mask-size:contain;
