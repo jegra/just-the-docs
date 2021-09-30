@@ -3,11 +3,22 @@
 
     @include mq(sm) {
         margin-bottom: 3rem;
+        display: flex;
     }
 }
 .image-card__figure {
     background-color:rgba(126,126,126,.08);
-    display:inline-block;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+
+    > div {
+        flex-grow:1;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        overflow:hidden;
+    }
 
     img {
         display:block;
@@ -17,7 +28,7 @@
 }
 .image-card__link {
     display:block;
-    overflow:hidden;
+    overflow:visible !important;
 
     &:hover {
         img {
@@ -31,7 +42,9 @@
     padding:16px 20px;
     color: $image-card-label-color;
     background-color: $image-card-label-background-color;
-    
+    // margin-top:auto;
+    flex-grow:0;
+
     @include mq(md) {
         padding:20px 30px;
     }

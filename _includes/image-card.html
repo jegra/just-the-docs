@@ -1,5 +1,6 @@
 <div class="image-card">
     <figure class="image-card__figure">
+        <div>
         {% if include.link %}
             <a href="{{ include.link }}" class="image-card__link">
         {% endif %}
@@ -7,6 +8,7 @@
         {% if include.link %}
             </a>
         {% endif %}
+        </div>
             
         <figcaption class="image-card__label">{{ include.label }}</figcaption>
     </figure>
