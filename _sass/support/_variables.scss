@@ -78,7 +78,7 @@ $code-background-color: $grey-lt-000 !default;
 $feedback-color: darken($sidebar-color, 3%) !default;
 $footer-background-color: $grey-dk-200 !default;
 $branding-background-color: darken($sidebar-color, 3%) !default;
-$branding-background-opacity: 1 !default;
+$branding-background-opacity: .85 !default;
 $hero-background-color: $blue-000 !default;
 $hero-background-opacity: .85 !default;
 
@@ -158,14 +158,18 @@ $nav-width-xxl: 400px !default;
 $nav-list-item-height: $spacing-unit * 2.25 !default;
 $nav-list-item-height-sm: $sp-7 !default;
 $nav-list-item-height-lg: $spacing-unit * 2.3 !default;
-$nav-list-expander-right: true;
+$nav-list-expander-right: true !default;
 $content-width: 1430px !default;
 $content-width-xxxl: 1500px !default;
-$header-height: 60px !default;
-$banner-height: 48px !default;
-$branding-height: 75px !default;
-$branding-height-md: 110px !default;
-$branding-height-lg: 150px !default;
+$header-height: 60px !default;  // Header bar height for mobile (where menu toggle lives)
+$banner-height: 48px !default;  // Top-most logo banner height on desktop
+$branding-area-height: 75px !default;  // Main logo display area (mobile screen size)
+$branding-area-height-md: 110px !default;  // Main logo display area (medium screen size) 
+$branding-area-height-lg: 150px !default;  // Main logo display area (large screen size)
+$sidebar-branding-area-height: 70px !default;  // Height of the logo area in the left sidebar
+$logo-height: 74% !default;  // Logo height relative to branding area size (mobile screen size)
+$logo-height-md: 66% !default;  // Logo height relative to branding area size (medium screen size)
+$logo-height-lg: 53% !default;  // Logo height relative to branding area size (large screen size)
 $search-results-width: $content-width - $nav-width-lg !default;
 $transition-duration: 400ms !default;
 

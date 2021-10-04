@@ -245,24 +245,25 @@
 // in the main content area (both mobile and desktop)
 .main-branding {
   @include background-opacity($branding-background-color, $branding-background-opacity);
-  height: $branding-height;
+  height: $branding-area-height;
   position:relative;
-  // display:flex;
+  display:flex;
+  align-items:center;
 
   @include mq(md) {
-    height: $branding-height-md;
+    height: $branding-area-height-md;
   }
   @include mq(lg) {
-    height: $branding-height-lg;
+    height: $branding-area-height-lg;
   }
 
   // When the site-title is displayed within the main-branding
   // area, we need some spacing adjustments made
   .site-title {
-    
+
     @include mq(md) {
-      position:relative;
       z-index:3;  // Place above the searchbar layer, to allow click access
+      position:relative;
       max-width:1200px;
       margin-right:110px;
     }
@@ -356,20 +357,33 @@
   // displayed within the site-header element
   .site-title {
     @include mq(md) {
-      padding-top: $sp-4;
-      padding-bottom: $sp-4;
+      // padding-top: $sp-2;
+      // padding-bottom: $sp-2;
     }
     @include mq(lg) {
-      padding: $sp-4 $gutter-spacing;
+      // padding: $sp-4 $gutter-spacing;
+      padding-right: $gutter-spacing;
+      padding-left: $gutter-spacing;
     }
   }
 
+
+
   @include mq(md) {
-    height: $header-height;
+    height: $sidebar-branding-area-height;
     margin-top:45px;
     // max-height: $header-height;
     // border-bottom: $border $border-color;
     // display:none;
+
+    // Let's also ensure that the logo stays at the 
+    // original (smallest) height setting for the 
+    // 'logo-height' value (ie. alternate larger
+    // screen height values shouldn't affect the
+    // logo when displayed in the sidebar)
+    .site-logo {
+      height: $logo-height !important;
+    }
   }
 }
 
@@ -381,7 +395,7 @@
   height: 100%;
   align-items: center;
   color: $body-heading-color;
-  padding: $sp-4 $gutter-spacing-sm;
+  padding: $sp-2 $gutter-spacing-sm;
   
   @include mq(sm) {
     padding-right: $gutter-spacing;
@@ -389,11 +403,13 @@
   }
   @include mq(md) {
     @include fs-10;
-    padding-top: $sp-5;
-    padding-bottom: $sp-5;
+    // padding-top: $sp-5;
+    // padding-bottom: $sp-5;
   }
   @include mq(lg) {
-    padding: 40px;
+    // padding: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
@@ -410,11 +426,20 @@
 @if variable-exists(logo) {
   .site-logo {
     width: 100%;
-    height: 100%;
+    height: $logo-height;
     background-image: url($logo);
     background-repeat: no-repeat;
     background-position: left center;
     background-size: contain;
+    transform-origin: 0% 50%;
+    transform:scale(.99); // Fix for image edge cropping
+
+    @include mq(md) {
+      height: $logo-height-md;
+    }
+    @include mq(lg) {
+      height: $logo-height-lg;
+    }
   }
 } @else {
   .site-header {
@@ -469,7 +494,7 @@
 #search-desktop-container {
   @include container;
   position:absolute;
-  z-index:2;
+  z-index:-1;
   height:60px;
   top:50%;
   transform:translateY(-50%);
@@ -495,6 +520,10 @@
   }
   .search-label {
     padding-left:.75em;
+  }
+
+  @include mq(md) {
+    z-index:2;
   }
 }
 #svg-search svg {
