@@ -49,6 +49,7 @@
   background:url(../images/banner-background.svg) left top repeat-x;
   margin-right:$gutter-spacing;
   height: $banner-height;
+  color: $top-banner-text-color;
 
   @include mq(lg) {
     margin-right: $gutter-spacing-lg;

@@ -39,6 +39,13 @@ banner_links:
   hits: true
 ```
 
+## Hero Background Image
+```yaml
+# Can specify an image to use as a background for hero blocks, as well as 
+# a background for the site logo on pages without a hero.
+hero_background: "/assets/images/hero_general-use.jpg"
+```
+
 ## Search
 
 ```yaml
