@@ -14,19 +14,19 @@ $body-heading-line-height: 1.25 !default;
 // `-sm` suffix is the size at the small (and above) media query
 //
 
-$font-size-1: 9px !default;
-$font-size-1-sm: 10px !default;
-$font-size-2: 12px !default;
-$font-size-2-sm: 14px !default; //h4 - uppercased!, h6 not uppercased, text-small
-$font-size-3: 16px !default; //h5, body-mobile
-$font-size-4: 18px !default; //h3, body
-$font-size-5: 20px !default; 
-$font-size-6: 22px !default; //nav
-$font-size-7: 24px !default; //h2
-$font-size-8: 30px !default; 
-$font-size-9: 32px !default; //h1
-$font-size-10: 38px !default; // Mobile
-$font-size-10-sm: 44px !default; // Small size and up...
+$font-size-1: .5625rem !default;  // 9px
+$font-size-1-sm: .625rem !default;  // 10px
+$font-size-2: .75rem !default;  // 12px
+$font-size-2-sm: .875rem !default; //h4 - uppercased!, h6 not uppercased, text-small - 14px
+$font-size-3: 1rem !default;  //h5, body-mobile - 16px
+$font-size-4: 1.125rem !default;  //h3, body - 18px
+$font-size-5: 1.25rem !default;  // 20px
+$font-size-6: 1.375rem !default;  //nav - 22px
+$font-size-7: 1.5rem !default;  //h2 - 24px
+$font-size-8: 1.875rem !default;  // 30px
+$font-size-9: 2rem !default;  //h1 - 32px
+$font-size-10: 2.375rem !default;  // Mobile - 38px
+$font-size-10-sm: 2.75rem !default;  // Small size and up - 44px
 
 //
 // Colors
