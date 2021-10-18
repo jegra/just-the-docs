@@ -20,9 +20,9 @@
     @include mq(lg) {
       @include fs-5;
     }
-    @include mq(xl) {
-      @include fs-6;
-    }
+    // @include mq(xl) {
+    //   @include fs-6;
+    // }
 
     .nav-list-link {
       display: block;
