@@ -1,28 +1,40 @@
-{% if site.license_name != nil and site.license_name != "" %}
-  {% assign hasLicenseName = true %}
-{% else %}
-  {% assign hasLicenseName = false %}
-{% endif %}
+{% for item in site.license %}
 
-{% if site.license_url != nil and site.license_url != "" %}
-  {% assign hasLicenseUrl = true %}
-{% else %}
-  {% assign hasLicenseUrl = false %}
-{% endif %}
+  {% if item.name != nil and item.name != "" %}
+    {% assign hasLicenseName = true %}
+  {% else %}
+    {% assign hasLicenseName = false %}
+  {% endif %}
 
-{% assign hasLicenseUrl = (site.license_url != nil and site.license_url != "") %}
-{%- if hasLicenseUrl or hasLicenseName -%}
-  <p>{{ site.title }} is licensed under the 
-    {% if hasLicenseUrl %}
-      <a href="{{ site.license_url }}" target="_blank">
-    {%- endif -%}
-      {% if hasLicenseName %}
-        {{ site.license_name }}
-      {% else %}
-        {{ site.license_url }}
-      {% endif %}
-    {%- if hasLicenseUrl -%}
-      </a>
-    {%- endif -%}
-  </p>
-{% endif %}
+  {% if item.url != nil and item.url != "" %}
+    {% assign hasLicenseUrl = true %}
+  {% else %}
+    {% assign hasLicenseUrl = false %}
+  {% endif %}
+
+  {% if item.description != nil and item.description != "" %}
+    {% assign description = item.description %}
+  {% else %}
+    {% capture description %}
+      {{ site.title }} is licensed under the
+    {% endcapture %}
+  {% endif %}
+
+  {% assign hasLicenseUrl = (item.url != nil and item.url != "") %}
+  {%- if hasLicenseUrl or hasLicenseName -%}
+    <p class="mb-2">{{ description }} 
+      {% if hasLicenseUrl %}
+        <a href="{{ item.url }}" target="_blank">
+      {%- endif -%}
+        {% if hasLicenseName %}
+          {{ item.name }}
+        {% else %}
+          {{ item.url }}
+        {% endif %}
+      {%- if hasLicenseUrl -%}
+        </a>
+      {%- endif -%}
+    </p>
+  {% endif %}
+
+{% endfor %}

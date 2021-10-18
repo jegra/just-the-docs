@@ -100,9 +100,13 @@ heading_anchors: true
 footer_content: "Copyright &copy; 2017-2021 Patrick Marsceill."
 
 # License information
-# Provide license information for the project
-license_name: "MIT License"
-license_url: "https://github.com/pmarsceill/just-the-docs/blob/master/LICENSE.txt"
+# Provide license information for the project. License data is provided in list
+# format, so that multiple licenses may be included.
+# NOTE: By default, description text will be "[site title] is licensed under the"
+license:
+  - description: 
+    name: "MIT License"
+    url: "https://github.com/pmarsceill/just-the-docs/blob/master/LICENSE.txt" 
 
 # Footer logos
 # Specify one or more linked logos to display.
