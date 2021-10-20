@@ -79,6 +79,29 @@ Font size 10
 {: .fs-10 }
 ```
 
+### Global font size adjustments
+
+There are a series of variables that can be set in the theme's [color scheme file]({% link docs/customization.md %}) that allow for the global override of font sizes for specific elements.  Using the `fs-x` system of size specifications (outlined above), the elements will size dynamically, based on the viewing device's browser width.
+
+| Variable name | Default size assignment |
+|:------------------------|:--------------|
+| `$body-font-size`       | `fs-4`        | 
+| `$h1-font-size`         | `fs-9`        | 
+| `$h2-font-size`         | `fs-7`        | 
+| `$h3-font-size`         | `fs-4`        | 
+| `$h4-font-size`         | `fs-2`        | 
+| `$h5-font-size`         | `fs-3`        | 
+| `$h6-font-size`         | `fs-2`        | 
+| `$text-small-font-size` | `fs-2`        | 
+
+```scss
+In the color scheme file, overrides would be assigned like so:
+
+$body-font-size: fs-3;
+$h2-font-size: fs-8;
+```
+
+
 ## Font weight
 
 Use the `.fw-300` - `.fw-700` to set an explicit font-weight.

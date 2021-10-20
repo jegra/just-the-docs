@@ -509,12 +509,12 @@
 
 
   .search {
-    flex:0 0 92px;
+    flex:0 0 6rem;
     transition: flex-basis 0.2s ease-out;
   }
   .search-input {
     background-color: transparent;
-    padding:1em .25em 1em 2.5em;
+    padding:1rem .25rem 1rem 2.5rem;
     
     &::placeholder {
       @include fs-2;
@@ -523,7 +523,7 @@
     }
   }
   .search-label {
-    padding-left:.75em;
+    padding-left:.75rem;
   }
 
   @include mq(md) {

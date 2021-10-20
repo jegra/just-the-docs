@@ -28,6 +28,17 @@ $font-size-9: 2rem !default;  //h1 - 32px
 $font-size-10: 2.375rem !default;  // Mobile - 38px
 $font-size-10-sm: 2.75rem !default;  // Small size and up - 44px
 
+
+// Element Font Sizes
+$body-font-size: fs-4 !default;
+$h1-font-size: fs-9 !default;
+$h2-font-size: fs-7 !default;
+$h3-font-size: fs-4 !default;
+$h4-font-size: fs-2 !default;
+$h5-font-size: fs-3 !default;
+$h6-font-size: fs-2 !default;
+$text-small-font-size: fs-2 !default;
+
 //
 // Colors
 //
@@ -105,7 +116,7 @@ $footer-link-color: $white !default;
 // Spacing
 //
 
-$spacing-unit: 1rem; // 1rem == 16px
+$spacing-unit: 16px !default;
 
 $spacers: (
   sp-0: 0,
@@ -148,26 +159,26 @@ $separator-color: $blue-300 !default;
 
 $gutter-spacing: $sp-6 !default;
 $gutter-spacing-sm: $sp-4 !default;
-$gutter-spacing-lg: 80px !default;
-$gutter-spacing-xl: 100px !default;
-$gutter-spacing-xxl: 125px !default;
-$gutter-spacing-xxxl: 160px !default;
-$grid-gutter: 3rem !default;
-$nav-width-md: 280px !default;
-$nav-width-lg: 340px !default;
-$nav-width-xxl: 400px !default;
+$gutter-spacing-lg: $spacing-unit * 5 !default;
+$gutter-spacing-xl: $spacing-unit * 6.25 !default;
+$gutter-spacing-xxl: $spacing-unit * 7.8125 !default;
+$gutter-spacing-xxxl: $spacing-unit * 10 !default;
+$grid-gutter: $sp-8 !default;
+$nav-width-md: $spacing-unit * 17.5 !default;
+$nav-width-lg: $spacing-unit * 21.25 !default;
+$nav-width-xxl: $spacing-unit * 25 !default;
 $nav-list-item-height: $spacing-unit * 2.25 !default;
 $nav-list-item-height-sm: $sp-7 !default;
 $nav-list-item-height-lg: $spacing-unit * 2.3 !default;
 $nav-list-expander-right: true !default;
-$content-width: 1430px !default;
-$content-width-xxxl: 1500px !default;
-$header-height: 60px !default;  // Header bar height for mobile (where menu toggle lives)
-$banner-height: 48px !default;  // Top-most logo banner height on desktop
-$branding-area-height: 75px !default;  // Main logo display area (mobile screen size)
-$branding-area-height-md: 110px !default;  // Main logo display area (medium screen size) 
-$branding-area-height-lg: 150px !default;  // Main logo display area (large screen size)
-$sidebar-branding-area-height: 70px !default;  // Height of the logo area in the left sidebar
+$content-width: $spacing-unit * 89.375 !default;
+$content-width-xxxl: $spacing-unit * 93.75 !default;
+$header-height: $spacing-unit * 3.75 !default;  // Header bar height for mobile (where menu toggle lives)
+$banner-height: $spacing-unit * 3 !default;  // Top-most logo banner height on desktop
+$branding-area-height: $spacing-unit * 4.6875 !default;  // Main logo display area (mobile screen size)
+$branding-area-height-md: $spacing-unit * 6.875 !default;  // Main logo display area (medium screen size) 
+$branding-area-height-lg: $spacing-unit * 9.375 !default;  // Main logo display area (large screen size)
+$sidebar-branding-area-height: $spacing-unit * 4.375 !default;  // Height of the logo area in the left sidebar
 $logo-height: 74% !default;  // Logo height relative to branding area size (mobile screen size)
 $logo-height-md: 66% !default;  // Logo height relative to branding area size (medium screen size)
 $logo-height-lg: 53% !default;  // Logo height relative to branding area size (large screen size)

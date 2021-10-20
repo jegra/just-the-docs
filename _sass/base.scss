@@ -14,11 +14,11 @@
 
 html {
   scroll-behavior: smooth;
-  font-size:100%; // Use default for root font size (typically 16px)
+  font-size: $root-font-size;
 }
 
 body {
-  @include fs-4;
+  @include font-size($body-font-size);
   font-family: $body-font-family;
   line-height: $body-line-height;
   color: $body-text-color;

@@ -5,7 +5,7 @@
 
 h1,
 .text-alpha {
-  @include fs-9;
+  @include font-size($h1-font-size);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -13,7 +13,7 @@ h1,
 
 h2,
 .text-beta {
-  @include fs-7;
+  @include font-size($h2-font-size);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -21,12 +21,12 @@ h2,
 
 h3,
 .text-gamma {
-  @include fs-4;
+  @include font-size($h3-font-size);
 }
 
 h4,
 .text-delta {
-  @include fs-2;
+  @include font-size($h4-font-size);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -38,18 +38,18 @@ h4 code {
 
 h5,
 .text-epsilon {
-  @include fs-3;
+  @include font-size($h5-font-size);
   color: $grey-dk-200;
 }
 
 h6,
 .text-zeta {
-  @include fs-2;
+  @include font-size($h6-font-size);
   color: $grey-dk-200;
 }
 
 .text-small {
-  @include fs-2;
+  @include font-size($text-small-font-size);
 }
 
 .text-mono {
