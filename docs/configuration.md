@@ -20,7 +20,7 @@ Just the Docs has some specific configuration parameters that can be defined in 
 ---
 
 
-View this site's [_config.yml](https://github.com/pmarsceill/just-the-docs/tree/master/_config.yml) file as an example.
+View this site's [_config.yml](https://github.com/labsyspharm/just-the-docs-lsp/blob/main/_config.yml) file as an example.
 
 
 ## Site logo
@@ -125,8 +125,8 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub."
-gh_edit_repository: "https://github.com/pmarsceill/just-the-docs" # the github URL for your repo
-gh_edit_branch: "master" # the branch that your docs is served from
+gh_edit_repository: "https://github.com/labsyspharm/just-the-docs-lsp" # the github URL for your repo
+gh_edit_branch: "main" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
 ```
@@ -143,21 +143,21 @@ _note: `footer_content` is deprecated, but still supported. For a better experie
 ## Color scheme
 
 ```yaml
-# Color scheme supports "light" (default) and "dark"
-color_scheme: dark
+# Color scheme supports "light" (default), "blue", "bold", and "dark"
+color_scheme: blue
 ```
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
+<button class="btn btn-primary js-toggle-blue-scheme">Preview blue color scheme</button>
 
 <script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+const toggleBlueScheme = document.querySelector('.js-toggle-blue-scheme');
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
+jtd.addEvent(toggleBlueScheme, 'click', function(){
+  if (jtd.getTheme() === 'blue') {
     jtd.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
+    toggleBlueScheme.textContent = 'Preview blue color scheme';
   } else {
-    jtd.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
+    jtd.setTheme('blue');
+    toggleBlueScheme.textContent = 'Return to light color scheme (default)';
   }
 });
 </script>
