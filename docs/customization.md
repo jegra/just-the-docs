@@ -21,7 +21,7 @@ nav_order: 6
 New
 {: .label .label-green }
 
-Just the Docs supports two color schemes: light (default), and dark.
+Just the Docs supports four color schemes: light (default), blue, bold, and dark.
 
 To enable a color scheme, set the `color_scheme` parameter in your site's `_config.yml` file:
 
@@ -29,22 +29,22 @@ To enable a color scheme, set the `color_scheme` parameter in your site's `_conf
 {: .no_toc }
 
 ```yaml
-# Color scheme supports "light" (default) and "dark"
-color_scheme: dark
+# Color scheme supports "light" (default), "blue", "bold", and "dark"
+color_scheme: blue
 ```
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
+<button class="btn btn-primary js-set-color-scheme" data-mode="light">Light Scheme (default)</button>
+<button class="btn btn-primary js-set-color-scheme" data-mode="blue">Blue Scheme</button>
+<button class="btn btn-primary js-set-color-scheme" data-mode="bold">Bold Scheme</button>
+<button class="btn btn-primary js-set-color-scheme" data-mode="dark">Dark Scheme</button>
 
 <script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+const colorSchemeBtns = document.querySelectorAll('.js-set-color-scheme');
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    jtd.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
+colorSchemeBtns.forEach((btn) => {
+  jtd.addEvent(btn, 'click', function(){
+    const theme = btn.dataset.mode;
+    jtd.setTheme(theme);
+  });
 });
 </script>
 
@@ -56,7 +56,7 @@ You can add custom schemes.
 If you want to add a scheme named `foo` (can be any name) just add a file `_sass/color_schemes/foo.scss` (replace `foo` by your scheme name) 
 where you override theme variables to change colors, fonts, spacing, etc.
 
-Available variables are listed in the [_variables.scss](https://github.com/pmarsceill/just-the-docs/tree/master/_sass/support/_variables.scss) file.
+Available variables are listed in the [_variables.scss](https://github.com/labsyspharm/just-the-docs-lsp/blob/main/_sass/support/_variables.scss) file.
 
 For example, to change the link color from the green default to blue, include the following inside your scheme file:
 
